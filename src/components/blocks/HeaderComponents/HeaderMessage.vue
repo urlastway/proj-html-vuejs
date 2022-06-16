@@ -7,7 +7,7 @@
           </div>
           <div class="header__message__content__right">
             <i class="fa-solid fa-phone-flip"></i>
-            <p>Give ua a call to book your tuition! 1-800-555-555</p>
+            <p>Give us a call to book your tuition! 1-800-555-555</p>
           </div>
         </div>
       </div>

@@ -78,11 +78,12 @@ export default {
 @import '../../../assets/Style/mixin.scss';
     .header__b{
         width: 100%;
-        height: 100px;
+        margin: 40px 0;
+        height: 80px;
         align-items: center;
         display: flex;
         justify-content: center;
-        background-color: rgb(63, 63, 63);
+       
 
     }
     .header__menu{
