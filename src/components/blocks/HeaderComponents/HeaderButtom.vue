@@ -53,8 +53,9 @@ export default {
 <style lang="scss" scoped>
 
 .header__buttom{
+  padding-top: 100px;
   width: 100%;
-  height: 700px;
+  height: 800px;
   display: flex;
   justify-content: center;
 
@@ -133,6 +134,7 @@ form {
 /*--- Button ---*/
 .header__bottom__button {
         margin-top: 20px;
+        outline: none;
         cursor: pointer;
         text-align: center;
         text-decoration: none;
@@ -140,7 +142,8 @@ form {
         padding: 15px 20px;
         background: var(--color__cube__BayLeaf);
         border: none;
-        border-radius: 20px;
+        border-radius: 15px;
+        border: solid 2px var(--color__cube__BayLeaf);
 
         p{
             text-transform: uppercase;
@@ -150,7 +153,9 @@ form {
 
     }
 .header__bottom__button:hover{
-        background: var(--color__cut__BayLeaf);
+        background: var(--color__cube__wite);
         transition: 0.3s;
+        border: solid 2px var(--color__cube__BayLeaf);
+        color: var(--color__cube__BayLeaf)
     }
 </style>

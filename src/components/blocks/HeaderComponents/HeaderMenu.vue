@@ -139,6 +139,7 @@ export default {
         background: var(--color__cube__BayLeaf);
         border: none;
         border-radius: 15px;
+        border: solid 2px var(--color__cube__BayLeaf);
 
         p{
             text-transform: uppercase;
@@ -148,8 +149,10 @@ export default {
 
     }
     .header__button:hover{
-        background: var(--color__cut__BayLeaf);
+        background: var(--color__cube__wite);
         transition: 0.3s;
+        border: solid 2px var(--color__cube__BayLeaf);
+        color: var(--color__cube__BayLeaf)
     }
     .links{
         display: flex;

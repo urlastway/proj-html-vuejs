@@ -1,9 +1,11 @@
 <template>
   <header class="header">
+    <div class="header__background">
       <HeaderMessage />
       <HeaderMenu />
       <HeaderInner />
       <HeaderButtom />
+    </div>
   </header>
 </template>
 
@@ -31,26 +33,20 @@ export default {
 <style lang="scss" scoped>
   .header{
     width: 100%;
-    height: 100vh;
+  }
+  .header__background{
+    width: 100%;
     background-image: url(../../assets/img/header__inner__img/homepage-hero-background.jpg);
+    background-repeat: no-repeat;
     position: relative;
     z-index: 0;
   }
-  .header::before{
+  .header__background::before{
     width: 100%;
     height: 230px;
     content: '';
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: -1;
-  }
-  .header::after{
-    width: 100%;
-    height: auto;
-    background-color: #fff;
-    content: '';
-    position: absolute;
-    opacity: 0.5;
-
   }
 </style>
