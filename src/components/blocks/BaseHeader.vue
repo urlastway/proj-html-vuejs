@@ -3,15 +3,18 @@
       <HeaderMessage />
       <HeaderMenu />
       <HeaderInner />
+      <HeaderButtom />
   </header>
 </template>
 
 
 <script>
 
-import HeaderMessage from './HeaderComponents/HeaderMessage'
-import HeaderMenu from './HeaderComponents/HeaderMenu'
-import HeaderInner from './HeaderComponents/HeaderInner.vue'
+import HeaderMessage from './HeaderComponents/HeaderMessage';
+import HeaderMenu from './HeaderComponents/HeaderMenu';
+import HeaderInner from './HeaderComponents/HeaderInner';
+import HeaderButtom from './HeaderComponents/HeaderButtom';
+
 
 
 export default {
@@ -20,6 +23,7 @@ export default {
     HeaderMessage,
     HeaderMenu,
     HeaderInner,
+    HeaderButtom,
 }
 }
 </script>
@@ -39,5 +43,14 @@ export default {
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: -1;
+  }
+  .header::after{
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    content: '';
+    position: absolute;
+    opacity: 0.5;
+
   }
 </style>

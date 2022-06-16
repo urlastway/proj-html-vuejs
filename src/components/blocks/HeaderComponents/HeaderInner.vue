@@ -33,6 +33,7 @@ export default {
 <style lang="scss" scoped>
 .header__inner{
     width: 100%;
+    height: 650px;
     display: flex;
     justify-content: center;
     color: var(--color__cube__wite);
