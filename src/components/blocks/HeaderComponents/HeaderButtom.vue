@@ -12,7 +12,7 @@
                 <h1 class="title__right">First Leson Free!</h1>
                 <p class="subtitle__right">When you make a block booking with us your first lesson is included free</p>
                 <form action="" v-for="(data, index) in datas" :key="index">
-                  <input type="text" :placeholder="data.name" v-modul="data.user__information"/>
+                  <input type="text" :placeholder="data.name"/>
                 </form>
                 <button class="header__bottom__button"><p>Request a callback</p></button>
               </div>
@@ -30,23 +30,19 @@ export default {
         datas: [
           {
             name: "Your Name*",
-            user__information: ""
           },
           {
             name: "Email",
-            user__information: ""
           },
           {
             name: "Telephone",
-            user__information: ""
           },
           {
             name: "Location",
-            user__information: ""
           },
         ]
       }
-    }
+    },
 }
 </script>
 
@@ -145,7 +141,7 @@ form {
         border-radius: 15px;
         border: solid 2px var(--color__cube__BayLeaf);
 
-        p{
+        p {
             text-transform: uppercase;
             font-weight: 700;
             font-size: 15px;
