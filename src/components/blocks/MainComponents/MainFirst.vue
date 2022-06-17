@@ -30,14 +30,18 @@
                     </div>
                 </div>
             </div>
-            <div class="main__grafics">
+            <div class="main__grafics ">
                 <div class="main__grafics__content" v-for="(circle, index) in circles" :key="index">
                     <div class="grafic">
                         <div class="circle__progress">
                             <div class="percents">
                                 {{circle.percent}}%
                             </div>
-                        </div>  
+                        </div>
+                        <svg class="progress__ring" width="270" height="270">
+                            <circle class="progress__ring__circle" stroke="#79b27b" stroke-width="14px"
+                            cx="135" cy="135" r="128.5" fill="transparent"/>
+                        </svg>  
                     </div>                  
                     <span class="percents__text">{{circle.text}}</span>
                 </div>
@@ -48,6 +52,9 @@
 </template>
 
 <script>
+
+/*import setProgress from 'methods'*/
+
 export default {
     name: 'MainFirst',
     data(){
@@ -83,10 +90,32 @@ export default {
                     text: 'Accident Rate',
                 },
             ]
-        }
+        };
     },
-}
+    created () {
+    window.addEventListener('scroll', this.handleScroll);
+    },
+    methods: {
+        /*handleScroll(){
+            const circle = document.querySelector('.progress__ring__circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = 1.5 * Math.PI * radius;
+            
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = circumference;
 
+            console.log(radius, circumference);
+
+            setProgress((percent) => {
+                const offset = circumference - percent / 100 * circumference;
+                circle.style.strokeDashoffset = offset;
+            });
+
+
+            setProgress(this.circles.percent)*/
+
+        },
+    }
 
 </script>
 
@@ -268,6 +297,7 @@ export default {
     }
 /*--- MAIN GRAFICS ---*/
 .main__grafics{
+    margin: 100px 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -285,7 +315,6 @@ export default {
         justify-content: center;
         align-items: center;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        margin-top: 100px;
 
     }
     .grafic{
@@ -299,7 +328,6 @@ export default {
             height: 270px;
             border-radius: 50%;
             background-color: rgba(180, 180, 180, 0.514);
-            padding: 20px;
             display: grid;
             place-items: center;
             position: relative;
@@ -319,6 +347,14 @@ export default {
             border-radius: 50%;
             background-color: #fff;
             content: '';
+        }
+        .progress__ring{
+            position: absolute;
+        }
+        .progress__ring__circle{
+            transform-origin: center;
+            transform: rotate(-90deg);
+            stroke-dasharray: 750;            
         }
 
     }
