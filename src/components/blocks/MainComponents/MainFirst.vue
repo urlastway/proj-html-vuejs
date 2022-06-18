@@ -304,7 +304,7 @@ export default {
 
     &__content{
         margin-top: 50px;
-        width: calc(100% / 3 - 60px);
+        width: calc(100% / 3 - 20px);
         height: 450px;
         background-color: #fff;
         border-radius: 15px;

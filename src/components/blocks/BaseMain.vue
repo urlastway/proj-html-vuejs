@@ -1,18 +1,24 @@
 <template>
   <main>
-    <div class="main__first__style">
-      <MainFirst />
-
+    <div class="main__style">
+      <div class="main__first__style">
+        <MainFirst />
+        <div class="main__second__style">
+          <MainSecond />
+        </div>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import MainFirst from './MainComponents/MainFirst';
+import MainSecond from './MainComponents/MainSecond.vue';
 export default {
     name: 'BaseMain',
     components: {
     MainFirst,
+    MainSecond,
 }
 }
 </script>
@@ -43,5 +49,8 @@ export default {
   position: absolute;
   background-color: #fff;
   z-index: -1;
+}
+.main__second__style{
+  width: 100%;
 }
 </style>
