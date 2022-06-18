@@ -42,15 +42,23 @@
                     <div class="testimonials___container">
                         <h1>Testimonials</h1>
                         <p class="comments">Here's what our happy drivers had to say about our services:</p>
-                        <img src="../../../assets/img/testimonials/testimonial-grant.png">
-                        <p class="testimonials__coments">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ducimus nemo, pariatur voluptatem nulla magni, incidunt quis exercitationem saepe cupiditate aliquam fuga quod! Autem tempora</p>
-                        <p class="testimonials__name">Sophia Jones</p>
+                        <img :src="testimonials[currentIndex].img">
+                        <p class="testimonials__coments">{{testimonials[currentIndex].Comment}}</p>
+                        <p class="testimonials__name">{{testimonials[currentIndex].name}}</p>
+                        <div class="thumbs__testimonials">
+                            <div class="thumb__on__left" v-on:click="PrevTestimonial()">
+                                <i class="fa-regular fa-circle-left"></i>
+                            </div>
+                            <div class="thumb" v-for="(testimonial, indexTestimonials) in testimonials" :key="indexTestimonials" :class="currentIndex === indexTestimonials ? `active` : null" v-on:click="ChangeTestimonial(indexTestimonials)"></div>
+                            <div class="thumb__on__right" v-on:click="NextTestimonial()">
+                                <i class="fa-regular fa-circle-right"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -58,6 +66,7 @@ export default {
     name: 'BaseSecond',
     data(){
         return{
+            currentIndex: 0,
             instructors: [
                 {
                     name: 'Mike Hart',
@@ -79,37 +88,56 @@ export default {
                 {
                     name: 'Sophia Jones',
                     img: require('../../../assets/img/testimonials/testimonial-sophia.png'),
-                    Comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ducimus nemo, pariatur voluptatem nulla magni, incidunt quis exercitationem saepe cupiditate aliquam fuga quod! Autem tempora',
-                    current: true,
+                    Comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ducimus nemo, pariatur voluptatem nulla magni, incidunt quis exercitationem saepe cupiditate aliquam fuga quod! Autem tempora.',
                 },
                 {
                     name: 'Harold Poping',
                     img: require('../../../assets/img/testimonials/testimonial-harold.png'),
-                    Comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ducimus nemo, pariatur voluptatem nulla magni, incidunt quis exercitationem saepe cupiditate aliquam fuga quod! Autem tempora',
-                    current: false,
+                    Comment: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum maiores ea obcaecati recusandae voluptatum alias, exercitationem minus labore veritatis voluptate autem, ipsa error.',
                 },
                 {
                     name: 'Kate Dash',
                     img: require('../../../assets/img/testimonials/testimonial-kate.png'),
-                    Comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ducimus nemo, pariatur voluptatem nulla magni, incidunt quis exercitationem saepe cupiditate aliquam fuga quod! Autem tempora',
-                    current: false,
+                    Comment: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt deleniti veniam libero eaque beatae. Distinctio, deleniti fugiat aut eligendi saepe, voluptatum laborum dolor assumenda hic culpa.',
                 },
                 {
                     name: 'Kelly Kiely',
                     img: require('../../../assets/img/testimonials/testimonial-kelly.png'),
-                    Comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ducimus nemo, pariatur voluptatem nulla magni, incidunt quis exercitationem saepe cupiditate aliquam fuga quod! Autem tempora',
-                    current: false,
+                    Comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde libero pariatur beatae accusamus vero molestiae iure ipsum voluptatibus incidunt, assumenda quaerat quis voluptatum alias.',
                 },
                 {
                     name: 'Grant Hot',
                     img: require('../../../assets/img/testimonials/testimonial-grant.png'),
-                    Comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ducimus nemo, pariatur voluptatem nulla magni, incidunt quis exercitationem saepe cupiditate aliquam fuga quod! Autem tempora',
-                    current: false,
+                    Comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quasi quis qui, nulla dicta, porro sequi nihil maxime aliquam nesciunt voluptatem placeat. Magni porro saepe praesentium.',
                 },
                 
             ]
         }
-    }
+    },
+    created() {
+        setInterval(() => {
+            this.NextTestimonial();
+        }, 3000);
+    },
+    methods: {
+        PrevTestimonial(){
+            if(this.currentIndex === 0){
+                this.currentIndex = this.testimonials.length - 1;
+            } else {
+                this.currentIndex--;
+            }
+        },
+        NextTestimonial(){
+            if(this.currentIndex === this.testimonials.length - 1 ){
+                this.currentIndex = 0;
+            } else {
+                this.currentIndex++;
+            }
+        },
+        ChangeTestimonial(indexTestimonials){
+            this.currentIndex = indexTestimonials;
+        }
+    },
 }
 </script>
 
@@ -169,6 +197,7 @@ export default {
     height: 500px;
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-top: 6px solid var(--color__cube__BayLeaf);
     border-radius: 15px;
     display: flex;
     justify-content: space-around;
@@ -257,7 +286,7 @@ export default {
             line-height: 2;
         }
         .testimonials__name{
-            padding: 30px;
+            padding: 20px;
             font-weight: 500;
             font-style: normal;
         }
@@ -266,6 +295,33 @@ export default {
             margin-bottom: 50px;
             font-size: 18px;
         }
+        .thumb__on__left, .thumb__on__right {
+            margin: 0 20px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
+}
+
+.thumbs__testimonials{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.thumb{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--color__cube__tundora);
+    margin: 0 5px;
+}
+.active{
+    background-color: var(--color__cube__tundora);
+
 }
 </style>

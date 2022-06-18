@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <svg class="progress__ring" width="270" height="270">
-                            <circle class="progress__ring__circle" stroke="#79b27b" stroke-width="14px"
+                            <circle :class="circle.percent === 95 ? `progress__ring__circle__1` : circle.percent === 100 ? `progress__ring__circle__2` : circle.percent === 0 ? `progress__ring__circle__3` : null" stroke="#79b27b" stroke-width="14px"
                             cx="135" cy="135" r="128.5" fill="transparent"/>
                         </svg>  
                     </div>                  
@@ -78,15 +78,15 @@ export default {
             ],
             circles: [
                 {
-                    percent: '95',
+                    percent: 95,
                     text: 'Pass Rate',
                 },
                 {
-                    percent: '100',
+                    percent: 100,
                     text: 'Referral Rate',
                 },
                 {
-                    percent: '0',
+                    percent: 0,
                     text: 'Accident Rate',
                 },
             ]
@@ -309,7 +309,7 @@ export default {
         background-color: #fff;
         border-radius: 15px;
         position: relative;
-        box-shadow: 0 -10px var(--color__cube__BayLeaf);
+        border-top: 6px solid var(--color__cube__BayLeaf);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -351,10 +351,20 @@ export default {
         .progress__ring{
             position: absolute;
         }
-        .progress__ring__circle{
+        .progress__ring__circle__1{
             transform-origin: center;
             transform: rotate(-90deg);
             stroke-dasharray: 750;            
+        }
+        .progress__ring__circle__2{
+            transform-origin: center;
+            transform: rotate(-90deg);
+            stroke-dasharray: 900;            
+        }
+        .progress__ring__circle__3{
+            transform-origin: center;
+            transform: rotate(-90deg);
+            stroke-dasharray: 0 10;            
         }
 
     }
