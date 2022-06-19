@@ -56,7 +56,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="latest">
+                    <h1 class="latest__title">Latest News</h1>
+                    <div class="latest__content">
+                        <div class="latest__content__include" v-for="(latest, indexLatest) in latests" :key="indexLatest">
+                            <img :src="latest.image">
+                            <h2 class="latest__title">
+                                {{latest.title}}
+                            </h2>
+                            <div class="latest__date__update">
+                                <p class="latest__date">{{latest.date}}</p>
+                                <p class="latest__comments"> | {{latest.comments}} comments</p>
+                                <p class=""></p>
+                            </div>
+                            <p class="latest__text">{{latest.text}}</p>
+                        </div>
+                    </div>
+                    <button class="latest__button"><p class="latest__button__text">More from the blog</p></button>
+                </div>
             </div>
+            
+        </div>
+        <div class="main__fourth">
+    
         </div>
     </div>
 </template>
@@ -111,6 +133,22 @@ export default {
                     Comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quasi quis qui, nulla dicta, porro sequi nihil maxime aliquam nesciunt voluptatem placeat. Magni porro saepe praesentium.',
                 },
                 
+            ],
+            latests: [
+                {
+                    image: require('../../../assets/img/latesnews/blog-choosecar-700x441.jpg'),
+                    title: 'What car to start with?',
+                    date: 'February 7th, 2019',
+                    comments: '0',
+                    text: 'Lorem ipsum dolor sit amet consectetur!'
+                },
+                {
+                    image: require('../../../assets/img/latesnews/blogpost-10and2-700x441.jpg'),
+                    title: 'Avada Driving School Expanding',
+                    date: 'February 7th, 2019',
+                    comments: '0',
+                    text: 'Consecteturipsum dolor sit amet consectetur Lorem.'
+                },
             ]
         }
     },
@@ -151,9 +189,17 @@ export default {
 }
 .main__third{
     width: 100%;
+    max-height: 850px;
     display: flex;
     justify-content: center;
     background-image: url(../../../assets/img/testimonials/testimonial-background.jpg);
+    background-size: cover;
+
+}
+.main__fourth{
+    width: 100%;
+    height: 800px;
+    background-image: url(../../../assets/img/latesnews/latestnews-background.jpg);
     background-size: cover;
 }
 .main__second__content{
@@ -262,12 +308,42 @@ export default {
     border: solid 2px var(--color__cube__BayLeaf);
     color: var(--color__cube__BayLeaf)
 }
+
+.latest__button{
+    width: 300px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 50px;
+    background: var(--color__cube__BayLeaf);
+    border: none;
+    border-radius: 30px;
+    border: solid 2px var(--color__cube__BayLeaf);
+
+    .latest__button__text{
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 15px;
+    }
+}
+.latest__button:hover{
+    background: var(--color__cube__wite);
+    transition: 0.3s;
+    border: solid 2px var(--color__cube__BayLeaf);
+    color: var(--color__cube__BayLeaf)
+}
+
+/*--- F.Buttons ---*/
 .testimonials{
     width: 100%;
 
     &___container{
         width: 100%;
-        padding: 150px 0;
+        padding-top: 150px;
+        padding-bottom: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -323,5 +399,81 @@ export default {
 .active{
     background-color: var(--color__cube__tundora);
 
+}
+
+/*Latest*/
+.latest{
+    width: 100%;
+    height: 700px;
+    border-top: 10px solid var(--color__cube__seagull);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    &::after{
+        content: '';
+        margin-top: 690px;
+        position: absolute;
+        width: 100%;
+        height: 120px;
+        background-image: url(../../../assets/img/latesnews/latestnews-bottom.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        
+    }
+
+    &__title{
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
+    &__content{
+        display: flex;
+        width: 100%;
+        padding: 0 50px;
+        margin-bottom: 50px;
+
+        &__include{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            img{
+                width: 500px;
+            }
+
+            .latest__title{
+                color: var(--color__cube__BayLeaf);
+                padding: 20px 0;
+                font-weight: 600;
+            }
+            .latest__date__update{
+                display: flex;
+                align-items: center;
+                color: var(--color__cube__tundora);
+                padding-bottom: 20px;
+                font-size: 14px;
+            }
+            .latest__comments{
+                color: var(--color__cube__BayLeaf);
+                margin-left: 6px;
+            }
+            .latest__text{
+                color: var(--color__cube__tundora);
+            }
+
+
+        }
+    }
+
+    .latest__content__title{
+
+    }
 }
 </style>
