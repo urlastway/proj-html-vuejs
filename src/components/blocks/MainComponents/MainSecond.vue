@@ -74,11 +74,22 @@
                     </div>
                     <button class="latest__button"><p class="latest__button__text">More from the blog</p></button>
                 </div>
+
             </div>
             
         </div>
         <div class="main__fourth">
     
+        </div>
+        <div class="main__fifth">
+            <h1>Sing up to our Newslatter</h1>
+            <form class="newslatter__form">
+                <input type="text" class="newslatter__form__text">
+                <button type="submit" class="newslatter__form__input">
+                    <p class="newslatter__form__input__text">Subscribe</p>
+                </button>
+            </form>
+            <p class="sharedata">(We do not share your data with anybody, and only use it for its intended purpose)</p>
         </div>
     </div>
 </template>
@@ -201,6 +212,18 @@ export default {
     height: 800px;
     background-image: url(../../../assets/img/latesnews/latestnews-background.jpg);
     background-size: cover;
+}
+.main__fifth{
+    width: 100%;
+    height: 400px;
+    background-image: url(../../../assets/img/newsletter/newsletter_background.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--color__cube__tundora);
+    flex-direction: column;
+    padding: 50px 0;
 }
 .main__second__content{
     display: flex;
@@ -475,5 +498,55 @@ export default {
     .latest__content__title{
 
     }
+}
+/*--- Newslatter ---*/
+.newslatter__form{
+    width: 600px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__text{
+        height: 40px;
+        border: 1px solid var(--color__cube__tundora);
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 0 10px;
+    }
+
+    /*Button*/
+
+    &__input{
+        width: 100%;
+        height: 50px;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        padding: 15px 50px;
+        background: var(--color__cube__BayLeaf);
+        border: none;
+        border-radius: 30px;
+        border: solid 2px var(--color__cube__BayLeaf);
+
+        &__text{
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 15px;
+            }
+    }
+    &__input:hover{
+                background: none;
+                transition: 0.3s;
+                border: solid 2px var(--color__cube__BayLeaf);
+                color: var(--color__cube__BayLeaf)
+            }
+
+}
+.sharedata{
+    font-size: 12px;
 }
 </style>
