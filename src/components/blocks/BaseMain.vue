@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="main">
     <div class="main__style">
       <div class="main__first__style">
         <MainFirst />
@@ -24,6 +24,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.main{
+  width: 100%;
+  height: 4055px;
+}
 .main__first__style{
   width: 100%;
   height: 900px;

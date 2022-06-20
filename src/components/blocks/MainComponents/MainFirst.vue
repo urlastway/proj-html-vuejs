@@ -115,7 +115,7 @@ export default {
             setProgress(this.circles.percent)*/
 
         },
-    }
+ }
 
 </script>
 
