@@ -10,7 +10,7 @@
           <div class="footer__card">
             <h1 class="footer__name__section">Contacts Details</h1>
             <div class="footer__links" v-for="info in informations" :key="info">
-              <i class="fa-solid fa-house-${info.icon} fa-xl"></i>
+              <i class="fa-solid fa-house-info.icon fa-xl"></i>
               <a href="#"><p>{{info.contact}}</p></a>
             </div>
           </div>
@@ -21,7 +21,7 @@
               <a href="#"><p>{{course.name}}</p></a>
             </div>
           </div>
-          <div class="footer__card">
+          <div class="footer__card center">
             <img src="../../assets/img/footer/footer-ad-grid.png" class="footer__logo">
             <button class="footer__button"><p class="footer__button__text">Book Now</p></button>
           </div>
@@ -29,7 +29,17 @@
       </div>
     </div>
     <div class="footer__bottom">
-
+      <div class="container">
+        <div class="footer__bottom__content">
+          <p>© Copyright 2012 - 2020 | Avada Theme by <a href="#" class="footer__bottom__content__link">Theme-Fusion</a> | All Right Reserved | Powerd by <a href="#" class="footer__bottom__content__link">WordPress</a></p>
+          <div class="footer__bottom__content__icons fa-lg">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+            <i class="fa-brands fa-twitter-square fa-lg"></i>
+            <i class="fa-brands fa-youtube fa-lg"></i>
+            <i class="fa-brands fa-instagram-square fa-lg"></i>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
@@ -45,7 +55,7 @@ export default {
             contact: '12345 North Main Street New Youk, NY 555555'
           },
           {
-            icon: 'phone-flip"',
+            icon: 'phone-flip',
             contact: '1.800.555.6789'
           },
           {
@@ -58,7 +68,7 @@ export default {
           },
         ],
         
-        Courses: [
+        courses: [
           {
             name: 'Pass Plus',
           },
@@ -94,6 +104,34 @@ export default {
   width: 100%;
   height: 145px;
   background-color:  #1c1d1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color__footer__text);
+
+  &__content{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+    font-size: 14px;
+    }
+
+    &__link{
+      color: var(--color__cube__BayLeaf);
+      text-decoration: none;
+    }
+
+    &__icons{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--color__cube__wite);
+      width: 150px;
+    }
+    }
 }
 .footer__top__content{
   width: 100%;
@@ -140,14 +178,16 @@ export default {
     }
   }
 /*BUTTONS*/
+
 .footer__button {
+    width: 200px;
     margin-top: 20px;
     outline: none;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    padding: 15px ;
+    padding: 10px ;
     background: var(--color__cube__BayLeaf);
     border: none;
     border-radius: 30px;
@@ -167,5 +207,9 @@ export default {
         border: solid 2px var(--color__cube__BayLeaf);
         color: var(--color__cube__BayLeaf)
     }
+}
+.center{
+  display: flex;
+  align-items: center;
 }
 </style>
